@@ -11,7 +11,6 @@ int _printf(const char *format, ...)
 	int i = 0;
 	int j = 0;
 	int k;
-	int count = 0;
 	char buffer[1024];
 	va_list list;
 	char *str;
@@ -26,6 +25,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					buffer[j] = va_arg(list, int);
+					j++;
 				break;
 				case 's':
 					k = 0;
@@ -42,10 +42,9 @@ int _printf(const char *format, ...)
 		else
 		{
 			buffer[j] = format[i];
+			j++;
 		}
 		i++;
-		j++;
-		count++;
 	}
-	return (write(1, &buffer, count));
+	return (write(1, &buffer, j));
 }
