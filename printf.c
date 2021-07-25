@@ -9,6 +9,7 @@
 int _printf(const char *format, ...)
 {
 	int i = 0;
+	int j = 0;
 	int k;
 	int count = 0;
 	char buffer[1024];
@@ -24,14 +25,15 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					buffer[i - 1] = va_arg(list, int);
+					buffer[j] = va_arg(list, int);
 				break;
 				case 's':
 					k = 0;
 					str = va_arg(list, char *);
 					while (str[k])
 					{
-						buffer[i + k - 1] = str[k];
+						buffer[j] = str[k];
+						j++;
 						k++;
 					}
 				break;
@@ -39,9 +41,10 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			buffer[i] = format[i];
+			buffer[j] = format[i];
 		}
 		i++;
+		j++;
 		count++;
 	}
 	return (write(1, &buffer, count));
