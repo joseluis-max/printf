@@ -2,5 +2,6 @@
 #define _HOLBERTON_H_
 
 int _putchar(char c);
+int _printf(const char *format, ...);
 
 #endif 

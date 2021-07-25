@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdarg.h>
+#include <unistd.h>
 /**
  * _printf - print format string
  * @format: string with format for printf
@@ -8,11 +9,11 @@
 int _printf(const char *format, ...)
 {
 	int i = 0;
-	int j = 0;
 	int k;
 	int count = 0;
 	char buffer[1024];
 	va_list list;
+	char *str;
 
 	va_start(list, format);
 	while (format[i] != '\0')
@@ -27,8 +28,7 @@ int _printf(const char *format, ...)
 				break;
 				case 's':
 					k = 0;
-					char *str = va_arg(list, char *);
-
+					str = va_arg(list, char *);
 					while (str[k])
 					{
 						buffer[i + k - 1] = str[k];
@@ -36,6 +36,10 @@ int _printf(const char *format, ...)
 					}
 				break;
 			}
+		}
+		else
+		{
+			buffer[i] = format[i];
 		}
 		i++;
 		count++;
