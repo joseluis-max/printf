@@ -10,6 +10,9 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	int j = 0;
+	int n;
+	int div;
+	int num;
 	int k;
 	char buffer[1024];
 	va_list list;
@@ -37,13 +40,33 @@ int _printf(const char *format, ...)
 						k++;
 					}
 				break;
+				case 'd':
+					n = va_arg(list, int);
+					div = 1;
+
+					if (n < 0)
+					{
+						buffer[j] = '-';
+						num = n * -1;
+						j++;
+					}
+					num = n;
+					while (num / div > 9)
+						div *= 10;
+					while (div != 0)
+					{
+						buffer[j] = '0' + (num / div);
+						num %= div;
+						div /= 10;
+						j++;
+					}
+				}
 			}
-		}
-		else
-		{
-			buffer[j] = format[i];
-			j++;
-		}
+			else
+			{
+				buffer[j] = format[i];
+				j++;
+			}
 		i++;
 	}
 	return (write(1, &buffer, j));
