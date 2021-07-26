@@ -1,6 +1,8 @@
 #include "holberton.h"
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <stddef.h>
 /**
  * _printf - print format string
  * @format: string with format for printf
@@ -10,10 +12,17 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	int j = 0;
-	int k;
+	int k = 0;
 	char buffer[1024];
+	void (*add_buffer)(char *buffer, va_list, int *j);
 	va_list list;
-	char *str;
+	PRINTERS_T prints[] = {
+		{"c", _print_char},
+		{"s", _print_string},
+		{"i", _print_integer},
+		{"d", _print_integer},
+		{NULL, NULL}
+	};
 
 	va_start(list, format);
 	while (format[i] != '\0')
@@ -21,22 +30,16 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			switch (format[i])
+			while (prints[k].character != NULL)
 			{
-				case 'c':
-					buffer[j] = va_arg(list, int);
-					j++;
-				break;
-				case 's':
-					k = 0;
-					str = va_arg(list, char *);
-					while (str[k])
-					{
-						buffer[j] = str[k];
-						j++;
-						k++;
-					}
-				break;
+				if (prints[k].character[0] == format[i])
+				{
+					printf("%i", j);
+					add_buffer = prints[k].fprint;
+					add_buffer(buffer, list, &j);
+					printf("%i", j);
+				}
+				k++;
 			}
 		}
 		else
@@ -46,5 +49,6 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
-	return (write(1, &buffer, j));
+	va_end(list);
+	return (write(1, buffer, j));
 }
