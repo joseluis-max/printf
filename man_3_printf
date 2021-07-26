@@ -1,0 +1,19 @@
+./" Man page for _printf
+./" Contact luisj.valdiviezo20@gmail.com, to correct errors or types.
+.TH man 3 "26 JUL 2021" "1.0" "_printf man page"
+.SH NAME 
+_printf
+.SH DESCRIPTION
+Making my own printf function in C
+.SH OPTIONS FORMAT
+char - %c
+.br
+string - %s
+.br
+int - %d
+.br
+int - %i
+.SH SEE ALSO SPECIAL CASE
+especial scases there are here.
+.SH AUTOR
+Jose Valdiviezo (luisj.valdiviezo20@gmail.com)
