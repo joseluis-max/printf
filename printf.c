@@ -12,9 +12,6 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	int j = 0;
-	int n;
-	int div;
-	int num;
 	int k;
 	char buffer[1024];
 	void (*add_buffer)(char *buffer, va_list, int *j);
