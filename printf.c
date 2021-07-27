@@ -1,6 +1,8 @@
 #include "holberton.h"
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <stddef.h>
 /**
  * _printf - print format string
  * @format: string with format for printf
@@ -15,8 +17,15 @@ int _printf(const char *format, ...)
 	int num;
 	int k;
 	char buffer[1024];
+	void (*add_buffer)(char *buffer, va_list, int *j);
 	va_list list;
-	char *str;
+	PRINTERS_T prints[] = {
+		{"c", _print_char},
+		{"s", _print_string},
+		{"d", _print_integer},
+		{"i", _print_integer},
+		{NULL, NULL}
+	};
 
 	va_start(list, format);
 	while (format[i] != '\0')
@@ -24,50 +33,24 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			switch (format[i])
+			k = 0;
+			while (prints[k].character != NULL)
 			{
-				case 'c':
-					buffer[j] = va_arg(list, int);
-					j++;
-				break;
-				case 's':
-					k = 0;
-					str = va_arg(list, char *);
-					while (str[k])
-					{
-						buffer[j] = str[k];
-						j++;
-						k++;
-					}
-				break;
-				case 'd':
-					n = va_arg(list, int);
-					div = 1;
-
-					if (n < 0)
-					{
-						buffer[j] = '-';
-						num = n * -1;
-						j++;
-					}
-					num = n;
-					while (num / div > 9)
-						div *= 10;
-					while (div != 0)
-					{
-						buffer[j] = '0' + (num / div);
-						num %= div;
-						div /= 10;
-						j++;
-					}
+				if (prints[k].character[0] == format[i])
+				{
+					add_buffer = prints[k].fprint;
+					add_buffer(buffer, list, &j);
 				}
-			}
-			else
-			{
-				buffer[j] = format[i];
-				j++;
-			}
+				k++;
+      }
+		}
+		else
+		{
+			buffer[j] = format[i];
+			j++;
+		}
 		i++;
 	}
-	return (write(1, &buffer, j));
+	va_end(list);
+	return (write(1, buffer, j));
 }
