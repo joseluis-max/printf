@@ -12,15 +12,15 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	int j = 0;
-	int k = 0;
+	int k;
 	char buffer[1024];
 	void (*add_buffer)(char *buffer, va_list, int *j);
 	va_list list;
 	PRINTERS_T prints[] = {
 		{"c", _print_char},
 		{"s", _print_string},
-		{"i", _print_integer},
 		{"d", _print_integer},
+		{"i", _print_integer},
 		{NULL, NULL}
 	};
 
@@ -30,14 +30,13 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			k = 0;
 			while (prints[k].character != NULL)
 			{
 				if (prints[k].character[0] == format[i])
 				{
-					printf("%i", j);
 					add_buffer = prints[k].fprint;
 					add_buffer(buffer, list, &j);
-					printf("%i", j);
 				}
 				k++;
 			}
