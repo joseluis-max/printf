@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '%')
 		{
 			i++;
 			k = 0;
@@ -38,11 +38,17 @@ int _printf(const char *format, ...)
 					add_buffer = prints[k].fprint;
 					add_buffer(buffer, list, &j);
 				}
+				else
+				{
+					printf("The character don't macth, fix the format");
+				}
 				k++;
-      }
+			}
 		}
 		else
 		{
+			if (format[i] == '%')
+				i++;
 			buffer[j] = format[i];
 			j++;
 		}

@@ -41,17 +41,20 @@ void _print_integer(char *buffer, va_list list, int *j)
 {
 	int n;
 	int div;
-	int num;
+	unsigned int num;
 
 	n = va_arg(list, int);
 	div = 1;
 	if (n < 0)
 	{
-		buffer[*j] = '-';
+		buffer[*j] = 45;
 		num = n * -1;
-		*j = *j + 1;
+		*j += 1;
 	}
-	num = n;
+	else
+	{
+		num = n;
+	}
 	while (num / div > 9)
 		div *= 10;
 	while (div != 0)
