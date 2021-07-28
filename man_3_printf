@@ -4,16 +4,20 @@
 .SH NAME 
 _printf
 .SH DESCRIPTION
-Making my own printf function in C
+Performing a function that mimics the behavior of printf in the C language.
+Prinft prints a string to standard output replacing the characters of
+formatting the original string with the supplied argument values,
+If there is an error at the time of printing, it returns `-1`, otherwise we
+returns the length of the new string printed to standard output. 
 .SH OPTIONS FORMAT
-char - %c
+- print a char argument - %c
 .br
-string - %s
+- print a string argument - %s
 .br
-int - %d
+- print a integer argument - %d
 .br
-int - %i
-.SH SEE ALSO SPECIAL CASE
-especial scases there are here.
+- print a integer argument - %i
 .SH AUTOR
 Jose Valdiviezo (luisj.valdiviezo20@gmail.com)
+.SH COPYRIGHT
+This code is under a MIT license. 
