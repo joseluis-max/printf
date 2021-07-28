@@ -10,6 +10,7 @@ int _printf(const char *format, ...);
 void _print_char(char *buffer, va_list, int *j);
 void _print_string(char *buffer, va_list, int *j);
 void _print_integer(char *buffer, va_list, int *j);
+void _print_binary(char *buffer, va_list, int *j);
 /**
  * struct printers - format printers
  * @charcter: character type data
