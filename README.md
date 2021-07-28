@@ -36,8 +36,8 @@ You can install command as follows
     
 ## License
  
-This project is licensed under the [MIT](LICENSE.md)
-Creative Commons License - see the [MIT](LICENSE.md) file for
+This project is licensed under the [MIT](https://github.com/joseluis-max/printf/blob/9ab2c72770dc02e83f3fa9099a7936f3ee5bd28a/LICENSE)
+Creative Commons License - see the [MIT](https://github.com/joseluis-max/printf/blob/9ab2c72770dc02e83f3fa9099a7936f3ee5bd28a/LICENSE) file for
 details
 
 ## Acknowledgments
