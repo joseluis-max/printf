@@ -9,7 +9,11 @@ Project _printf prints strings formatted with the following special characters:
 
 Download the source code, compile it with the command `$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c`. 
 
-Include the `holberton.h` header in the file where we are going to use the `_printf` function. 
+Include the `holberton.h` header in the file where we are going to use the `_printf` function.
+
+### FlowChart
+<img src="https://github.com/joseluis-max/printf/blob/main/image%20(2).png" alt="flowchart" width="500"/>
+<img src="https://github.com/joseluis-max/printf/blob/main/image%20(3).png" alt="flowchart" width="500"/>
 
 ### Examples
 
