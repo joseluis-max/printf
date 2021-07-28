@@ -38,10 +38,6 @@ int _printf(const char *format, ...)
 					add_buffer = prints[k].fprint;
 					add_buffer(buffer, list, &j);
 				}
-				else
-				{
-					printf("The character don't macth, fix the format");
-				}
 				k++;
 			}
 		}
