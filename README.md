@@ -13,12 +13,10 @@ Include the `holberton.h` header in the file where we are going to use the `_pri
 
 ### Examples
 
-Requirements for the software and other tools to build, test and push 
-
 - Code Implementation
-![main.c!](https://raw.githubusercontent.com/joseluis-max/printf/main/Screenshot%20from%202021-07-27%2014-03-35.png)
+<img src="https://raw.githubusercontent.com/joseluis-max/printf/main/Screenshot%20from%202021-07-27%2014-03-35.png" alt="main.c" width="500"/>
 - Execution complile file
-![Execution!](https://raw.githubusercontent.com/joseluis-max/printf/main/Screenshot%20from%202021-07-27%2014-05-06.png)
+<img src="https://raw.githubusercontent.com/joseluis-max/printf/main/Screenshot%20from%202021-07-27%2014-05-06.png" alt="execution" width="500"/>
 
 ### Man Page install
 You can install command as follows 
