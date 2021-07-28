@@ -65,4 +65,40 @@ void _print_integer(char *buffer, va_list list, int *j)
 		*j += 1;
 	}
 }
-
+/**
+ * _print_binary - add a buffer a binary
+ * @list: list of arguments
+ * @buffer: array with the string for print without format
+ * @j: index of buffer
+ */
+void _print_binary(char *buffer, va_list list, int *j)
+{
+	int n = va_arg(list, int);
+	char arr[8] = {'0', '0', '0', '0', '0', '0', '0', '0'};
+	int i = 0;
+	int k = 8;
+	
+	if (n > 0)
+	{
+		while (n > 0)
+		{
+			if (n % 2  == 0)
+			{
+				arr[i] = '0';
+				i++;
+			}
+			else
+			{
+				arr[i] = '1';
+				i++;
+			}
+			n  = (int) n / 2;
+		}
+	}
+	while (k > 0)
+	{
+		buffer[*j] = arr[k];
+		k--;
+		*j += 1;
+	}
+}
