@@ -13,13 +13,13 @@ void _print_integer(char *buffer, va_list, int *j);
 void _print_binary(char *buffer, va_list, int *j);
 /**
  * struct printers - format printers
- * @charcter: character type data
+ * @character: character type data
  * @fprint: function for print every type of data
  */
-typedef struct printers 
+typedef struct printers
 {
 	char *character;
 	void (*fprint)(char *buffer, va_list, int *j);
 } PRINTERS_T;
 
-#endif 
+#endif
