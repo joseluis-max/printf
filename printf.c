@@ -10,9 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	int j = 0;
-	int k;
+	int i = 0, j = 0, k;
 	char buffer[1024];
 	void (*add_buffer)(char *buffer, va_list, int *j);
 	va_list list;
@@ -24,7 +22,6 @@ int _printf(const char *format, ...)
 		{"b", _print_binary},
 		{NULL, NULL}
 	};
-
 	va_start(list, format);
 	while (format[i] != '\0')
 	{
