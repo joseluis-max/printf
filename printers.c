@@ -77,7 +77,7 @@ void _print_binary(char *buffer, va_list list, int *j)
 	char arr[8] = {'0', '0', '0', '0', '0', '0', '0', '0'};
 	int i = 0;
 	int k = 8;
-	
+
 	if (n > 0)
 	{
 		while (n > 0)
